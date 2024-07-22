@@ -1,47 +1,52 @@
-# import library yang dibutuhkan
-import pickle
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "scikit-learn"])
+
 import streamlit as st
+import pickle
 
 # load model
 ginjal_model = pickle.load(open('ginjal_model.sav', 'rb'))
 
 # judul web
-st.title("Prediksi Penyakit Ginjal")
-st.write("Silakan input kesehatan anda untuk memprediksi kemungkinan penyakit ginjal.")
+st.title('Prediksi Penyakit Ginjal')
+st.write('Silakan input kesehatan anda untuk memprediksi kemungkinan penyakit ginjal')
 
 # CSS untuk styling
 st.markdown("""
-        <style>
-        body {
-            background-color: #D6E63;
-            color: #FFFFFF;
-        }
-        .main {
-            background-color: #8D6E63;
-            padding: 20px;
-            border-radius: 10px;
-            color: #FFFFFF;
-        }
-        .stImage > img {
-            border-radius: 10px;
-        }
-        .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
-            color: #D7CCC8;
-        }
-        .stMarkdown p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #FFFFFF;
-        }
-        .stTextInput, .stRadio {
-            margin-bottom: 20px;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+    <style>
+    body {
+        background-color: #D6E63;
+        color: #FFFFFF;
+    }
+    .main {
+        background-color: #8D6E63;
+        padding: 20px;
+        border-radius: 10px;
+        color: #FFFFFF;
+    }
+    .stImage > img {
+        border-radius: 10px;
+    }
+    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+        color: #D7CCC8;
+    }
+    .stMarkdown p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #FFFFFF;
+    }
+    .stTextInput, .stRadio {
+        margin-bottom: 20px;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
+# Form input data pengguna
 with st.form("prediction_form"):
     st.header("Informasi Medis")
-    
+
     col1, col2 = st.columns(2)
 
     with col1:
@@ -51,7 +56,7 @@ with st.form("prediction_form"):
         gula = st.text_input("Gula", help="Contoh: 90")
         glukosa_darah_acak = st.text_input("Glukosa Darah Acak", help="Contoh: 140")
         urea_darah = st.text_input("Urea Darah", help="Contoh: 50")
-        
+
     with col2:
         kreatinin_serum = st.text_input("Kreatinin Serum", help="Contoh: 1.2")
         natrium = st.text_input("Natrium", help="Contoh: 138")
@@ -127,7 +132,7 @@ with st.form("prediction_form"):
             help="Pilih 'Ya' jika Anda mengalami anemia, sebaliknya pilih 'Tidak'."
         )
 
-    # membuat tombol untuk prediksi
+    # Membuat tombol untuk prediksi
     if st.form_submit_button('Test Prediksi gagal ginjal'):
         # Mendapatkan data input dari pengguna
         try:
