@@ -3,3 +3,8 @@ numpy==1.26.4
 streamlit
 scikit-learn
 pip==24.0
+seaborn
+matplotlib
+plotly
+missingno
+pickle
