@@ -3,7 +3,7 @@ import pickle
 import streamlit as st
 
 # load model
-ginjal_model = pickle.load(open('ginjal_model.pkl', 'rb'))
+ginjal_model = pickle.load(open('ginjal_model.sav', 'rb'))
 
 # judul web
 st.title("Prediksi Penyakit Ginjal")
