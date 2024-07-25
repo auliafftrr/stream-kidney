@@ -1,7 +1,5 @@
 import streamlit as st
 import pickle
-import os
-
 
     # Muat model
     ginjal_model = pickle.load(open('ginjal_model.sav', 'wb'))
