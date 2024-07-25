@@ -1,5 +1,6 @@
 import streamlit as st
 import pickle
+import os
 
     # Muat model
     model_dtc = pickle.load(open('ginjal_model.sav', 'rb'))
