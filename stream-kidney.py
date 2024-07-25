@@ -2,10 +2,7 @@ import streamlit as st
 import pickle
 import os
 
-# Periksa apakah file model ada
-if not os.path.exists('ginjal_model.sav'):
-    st.error("File 'ginjal_model.sav' tidak ditemukan. Pastikan file tersebut ada di direktori yang benar.")
-else:
+
     # Muat model
     ginjal_model = pickle.load(open('ginjal_model.sav', 'rb'))
 
