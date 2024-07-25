@@ -4,7 +4,7 @@ import os
 
 
     # Muat model
-    ginjal_model = pickle.load(open('ginjal_model.sav', 'rb'))
+    ginjal_model = pickle.load(open('ginjal_model.sav', 'wb'))
 
     # Judul web
     st.title('Prediksi Penyakit Ginjal')
